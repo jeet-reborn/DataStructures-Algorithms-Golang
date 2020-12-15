@@ -1,4 +1,15 @@
-// Implement all operations of single linked list.
+/* Implement the mentioned operations of single linked list.
+1) Insert a node at the beginning of the linked list.
+2) Insert at the beginning of the single linked list.
+3) Insert at the end of the single linked list.
+4) Insert a node at given position of the single linked list.
+5) Remove an element from the front of the single linked list.
+6) Remove an element from the tail of the single linked list.
+7) Remove an element from the given position of the linked list.
+8) Search a node in the single linked list.
+9) Find the sun of elements present in the single linked list.
+10) Find the size of the single linked list.
+*/
 
 package main
 
