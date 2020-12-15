@@ -19,44 +19,57 @@ type linkedList struct {
 }
 
 // Main function.
+// Uncomment the necessary lines and test the functionalities.
 func main() {
 
-	mylist := linkedList{}
-	node1 := &node{data: 40}
+	mylist := linkedList{}   // Initialize the linked list
+	node1 := &node{data: 40} // Creation of nodes.
 	node2 := &node{data: 30}
 	node3 := &node{data: 20}
 	node4 := &node{data: 10}
-	node5 := &node{data: 50}
 
 	// node5 := &node{data: 50}
 	// node6 := &node{data: 60}
-
 	// node7 := &node{data: 44}
 
+	// Insertion of nodes at the beginning.
 	mylist.insert_begin(node1)
 	mylist.insert_begin(node2)
 	mylist.insert_begin(node3)
 	mylist.insert_begin(node4)
-	mylist.insert_end(node5)
 
-	// mylist.insert_end(node5)
-	// mylist.insert_end(node6)
-
-	// pos := 5
-	// mylist.insert_at_postion(node7, pos)
 	mylist.printList()
-	// mylist.remove_from_front()
-	// mylist.printList()
-	// mylist.remove_from_tail()
-	// mylist.printList()
 
-	// nodeTobeFound := &node{data: 50}
-	// found := mylist.search_node(nodeTobeFound)
-	// if found {
-	// 	fmt.Println("Element is present in the linked list")
-	// } else {
-	// 	fmt.Println("Element NOT present in the linked list")
-	// }
+	/*  Insertion of nodes at the end.
+	mylist.insert_end(node5)
+	mylist.insert_end(node5)
+	mylist.insert_end(node6)
+
+	/* Insert at certain position
+	 pos := 5
+	 mylist.insert_at_postion(node7, pos)
+	mylist.printList()
+	*/
+
+	/* Remove the element from the front
+	mylist.remove_from_front()
+	 mylist.printList()
+	*/
+
+	/* Remove the element from the tail
+	mylist.remove_from_tail()
+	mylist.printList()
+	*/
+
+	/* Search for an element in the linked list.
+	nodeTobeFound := &node{data: 50}
+	found := mylist.search_node(nodeTobeFound)
+	if found {
+		fmt.Println("Element is present in the linked list")
+	} else {
+		fmt.Println("Element NOT present in the linked list")
+	}
+	*/
 
 	// count := mylist.size_of_the_linked_list()
 	// fmt.Println(count)
@@ -64,7 +77,7 @@ func main() {
 	// sum := mylist.sum_of_elements()
 	// fmt.Println(sum)
 
-	// mylist.remove_node_at_position(0)
+	// mylist.remove_node_at_position(3)
 	// mylist.printList()
 }
 
