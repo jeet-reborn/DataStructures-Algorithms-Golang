@@ -166,7 +166,6 @@ func (l *linkedList) remove_node_at_position(pos int) {
 		l.head = ptr.next
 		l.len--
 	} else {
-
 		j := 0
 		for j < pos-2 {
 			cur = cur.next
