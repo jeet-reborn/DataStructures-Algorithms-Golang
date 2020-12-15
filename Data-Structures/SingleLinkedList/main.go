@@ -50,19 +50,22 @@ func main() {
 	// mylist.remove_from_tail()
 	// mylist.printList()
 
-	nodeTobeFound := &node{data: 50}
-	found := mylist.search_node(nodeTobeFound)
-	if found {
-		fmt.Println("Element is present in the linked list")
-	} else {
-		fmt.Println("Element NOT present in the linked list")
-	}
+	// nodeTobeFound := &node{data: 50}
+	// found := mylist.search_node(nodeTobeFound)
+	// if found {
+	// 	fmt.Println("Element is present in the linked list")
+	// } else {
+	// 	fmt.Println("Element NOT present in the linked list")
+	// }
 
-	count := mylist.size_of_the_linked_list()
-	fmt.Println(count)
+	// count := mylist.size_of_the_linked_list()
+	// fmt.Println(count)
 
-	sum := mylist.sum_of_elements()
-	fmt.Println(sum)
+	// sum := mylist.sum_of_elements()
+	// fmt.Println(sum)
+
+	// mylist.remove_node_at_position(0)
+	// mylist.printList()
 }
 
 // insert_begin : Function to insert element at the beginning of the linked list.
@@ -117,14 +120,14 @@ func (l *linkedList) insert_at_postion(n *node, pos int) {
 
 }
 
-//remove_front : Function to remove element from the front of the linked list.
+//remove_from_front : Function to remove element from the front of the linked list.
 func (l *linkedList) remove_from_front() {
 	ptr := l.head
 	l.head = ptr.next
 	l.len--
 }
 
-//remove_back : Function to remove element from the back of the linked list.
+//remove_from_tail : Function to remove element from the back of the linked list.
 func (l *linkedList) remove_from_tail() {
 	ptr := l.head
 
@@ -136,42 +139,34 @@ func (l *linkedList) remove_from_tail() {
 
 }
 
-//remove_at_position : Function to remove an element from a certain position from the linked list.
+//remove_node_at_position : Function to remove an element from a certain position from the linked list.
 func (l *linkedList) remove_node_at_position(pos int) {
 	ptr := l.head
-	cur := l.head
+	cur := ptr.next
 
-	if pos < 0 {
-		fmt.Println("Invalid position")
-		return
-	}
-	if pos > l.len {
+	if pos < 0 || pos == 0 || pos > l.len {
 		fmt.Println("Invalid position")
 		return
 	}
 
-	j := 0
-	for j < pos-2 {
-		j++
-		cur = ptr.next
+	if pos == 1 {
+		l.head = ptr.next
+		l.len--
+	} else {
+
+		j := 0
+		for j < pos-2 {
+			cur = cur.next
+			ptr = ptr.next
+			j++
+		}
+		ptr.next = cur.next
+		cur.next = nil
+		l.len--
 	}
-	ptr.next = cur.next
-	cur.next = nil
-	l.len--
 }
 
-//display : Function to display the linked list.
-func (l linkedList) printList() {
-	finalList := l.head
-	for i := 0; i < l.len; i++ {
-		fmt.Printf("%d ", finalList.data)
-		finalList = finalList.next
-		fmt.Printf("-> ")
-	}
-	fmt.Printf("\n")
-}
-
-//search_element : Function to search an element in the single linked list.
+//search_node : Function to search an element in the single linked list.
 func (l *linkedList) search_node(n *node) bool {
 	ptr := l.head
 	found := false
@@ -186,7 +181,7 @@ func (l *linkedList) search_node(n *node) bool {
 	return found
 }
 
-// count_number_of_nodes : Function to count the number of nodes present in linked list.
+// size_of_the_linked_list : Function to count the number of nodes present in linked list.
 func (l *linkedList) size_of_the_linked_list() int {
 	ptr := l.head
 	count := 0
@@ -207,4 +202,15 @@ func (l *linkedList) sum_of_elements() int {
 		ptr = ptr.next
 	}
 	return sum
+}
+
+//printList : Function to display the linked list.
+func (l linkedList) printList() {
+	finalList := l.head
+	for i := 0; i < l.len; i++ {
+		fmt.Printf("%d ", finalList.data)
+		finalList = finalList.next
+		fmt.Printf("-> ")
+	}
+	fmt.Printf("\n")
 }
