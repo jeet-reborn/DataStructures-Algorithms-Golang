@@ -9,6 +9,7 @@
 8) Search a node in the single linked list.
 9) Find the sun of elements present in the single linked list.
 10) Find the size of the single linked list.
+11) Reverse the linked list in an iterative way.
 */
 
 package main
