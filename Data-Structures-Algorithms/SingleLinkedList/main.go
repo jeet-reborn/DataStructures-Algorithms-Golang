@@ -9,6 +9,7 @@
 8) Search a node in the single linked list.
 9) Find the sun of elements present in the single linked list.
 10) Find the size of the single linked list.
+11) Reverse the linked list in an iterative way.
 */
 
 package main
@@ -237,3 +238,21 @@ func (l linkedList) printList() {
 	}
 	fmt.Printf("\n")
 }
+
+//reverseLinkedList : Reverse the linked list in an iterative way.
+func (l *linkedList) reverseLinkedList() {
+
+	prev := &node{0, nil}
+	next := &node{0, nil}
+
+	cur := l.head
+
+	for cur != nil {
+		next = cur.next
+		cur.next = prev
+		prev = cur
+		cur = next
+	}
+	l.head = prev
+}
+
