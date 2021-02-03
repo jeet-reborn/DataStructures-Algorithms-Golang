@@ -3,23 +3,23 @@ package main
 import "fmt"
 
 func main() {
-	var arr = []int{5, 6, 3, 2, 8, 1, 0}
+	arr := []int{5, 2, 3, 7, 9, 0}
 	fmt.Println("Before Sorting : ", arr)
-	insertionSort(arr)
-	fmt.Println("After Sorting : ", arr)
+	sortedArray := InsertionSort(arr, len(arr))
+	fmt.Println("After Sorting : ", sortedArray)
 }
 
-func insertionSort(arr []int) {
+// InsertionSort : Insertion Sort function.
+func InsertionSort(arr []int, n int) []int {
 
-	for i := 0; i < len(arr); i++ {
-		j := i
-		key := arr[j]
-
-		for j > 0 && key < arr[j-1] {
-
-			arr[j] = arr[j-1]
-			j = j - 1
+	for i := 1; i < n; i++ {
+		j := i - 1
+		x := arr[i] // x is the element that needs to be inserted at each pass.
+		for j > -1 && arr[j] > x {
+			arr[j+1] = arr[j]
+			j--
 		}
-		arr[j] = key
+		arr[j+1] = x
 	}
+	return arr
 }
